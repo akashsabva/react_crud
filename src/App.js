@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Form from './pages/form';
+import FormAxios from './pages/form/indexAxios';
+import UserDetails from './pages/form/userDetails';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <Form /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/userDetails/:id" element={<UserDetails />}></Route>
+          <Route path="/formAxios" element={<FormAxios />}></Route>
+          <Route path="/" element={<Form />}></Route>
+        </Routes>      
+      </BrowserRouter>
     </div>
   );
 }
